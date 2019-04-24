@@ -1,0 +1,40 @@
+<link href="../../../assets/assets/img/brand/favicon.png" rel="icon" type="image/png">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<!-- Icons -->
+<link href="../../../assets/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+
+<!-- Argon CSS -->
+<link type="text/css" href="../../../assets/assets/css/argon.css?v=1.0.0" rel="stylesheet">
+<table class="table align-items-center table-flush">
+  <thead class="thead-light">
+  <tr>
+    <th  style="width: 1%">#</th>
+    <th >Title</th>
+
+    <th ></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let activity of activities">
+
+    <td>
+      {{activity.idActivity}}
+    </td>
+
+    <td>
+      {{activity.title}}
+    </td>
+    <td class="text-right" >
+      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#activityDetailModal" (click)="activityDetail.load(activity.idActivity)"><i class="fa fa-folder" ></i> View </a>
+      <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateActivityModal" (click)="updateActivity.load(activity.idActivity)"><i class="fas fa-pencil-alt"></i> Edit </a>
+      <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal" (click)="deleteActivity.initIdActivity(activity.idActivity)"><i class="far fa-trash-alt"></i> Delete </a>
+    </td>
+  </tr>
+
+
+  </tbody>
+</table>
+<app-update-activity #updateActivity (submitted)="getAllActivities()"></app-update-activity>
+<app-delete-activity #deleteActivity (submitted)="getAllActivities()"></app-delete-activity>
+<app-activity-detail #activityDetail></app-activity-detail>

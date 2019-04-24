@@ -1,0 +1,30 @@
+<link href="../../../../assets/assets/img/brand/favicon.png" rel="icon" type="image/png">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<!-- Icons -->
+<link href="../../../../assets/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+
+<!-- Argon CSS -->
+<link type="text/css" href="../../../../assets/assets/css/argon.css?v=1.0.0" rel="stylesheet">
+<div class="row">
+  <div class="col">
+    <div class="card shadow">
+      <div class="card-header border-0">
+
+        <h3 style="display:inline-block;">list of users</h3>
+
+        <button style="display:inline-block;float: right" type="button" class="btn btn-success" data-toggle="modal"
+                data-target="#addUserModal" (click)="addUser.reset()">Add User
+        </button>
+
+      </div>
+      <div class="table-responsive" style="min-height: 500px; max-height: 500px">
+
+        <app-user-list #userList></app-user-list>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<app-add-user #addUser (submitted)="userList.load($event)"></app-add-user>

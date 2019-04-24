@@ -1,0 +1,41 @@
+<link href="../../../assets/assets/img/brand/favicon.png" rel="icon" type="image/png">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<!-- Icons -->
+<link href="../../../assets/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+
+<!-- Argon CSS -->
+<link type="text/css" href="../../../assets/assets/css/argon.css?v=1.0.0" rel="stylesheet">
+<table class="table align-items-center table-flush">
+  <thead class="thead-light">
+  <tr>
+    <th  style="width: 1%">#</th>
+    <th >Title</th>
+
+    <th ></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let role of roles">
+
+    <td>
+      {{role.idRole}}
+    </td>
+
+    <td>
+      {{role.titre}}
+    </td>
+    <td class="text-right" >
+      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#roleDetailModal" (click)="roleDetail.load(role.idRole)"><i class="fa fa-folder" ></i> View </a>
+      <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateRoleModal" (click)="updateRole.load(role.idRole)"><i class="fas fa-pencil-alt"></i> Edit </a>
+      <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal" (click)="deleteRole.initIdRole(role.idRole)"><i class="far fa-trash-alt"></i> Delete </a>
+    </td>
+  </tr>
+
+
+  </tbody>
+</table>
+<app-update-role #updateRole (submitted)="getAllRoles()"></app-update-role>
+<app-delete-role #deleteRole (submitted)="getAllRoles()"></app-delete-role>
+<app-role-detail #roleDetail></app-role-detail>
+

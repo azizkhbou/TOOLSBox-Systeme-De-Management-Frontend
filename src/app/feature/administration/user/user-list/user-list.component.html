@@ -1,0 +1,68 @@
+<link href="../../../assets/assets/img/brand/favicon.png" rel="icon" type="image/png">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<!-- Icons -->
+<link href="../../../assets/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+
+<!-- Argon CSS -->
+<link type="text/css" href="../../../assets/assets/css/argon.css?v=1.0.0" rel="stylesheet">
+<table class="table align-items-center table-flush">
+  <thead class="thead-light">
+  <tr>
+    <th  style="width: 1%">#</th>
+    <th >Last Name</th>
+    <th >First Name</th>
+    <th >E-mail</th>
+    <th >Activity</th>
+    <th ></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users | paginate: { itemsPerPage: 6, currentPage: p ,totalItems: total}">
+
+    <td>
+{{user.idUser}}
+    </td>
+    <td>
+      {{user.nom}}
+    </td>
+    <td>
+      {{user.prenom}}
+    </td>
+    <td>
+      {{user.email}}
+    </td>
+    <td>
+      {{user.activity.title}}
+    </td>
+    <td class="text-right" >
+      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#userDetailModal" (click)="userDetail.load(user.idUser)"><i class="fas fa-folder" ></i> View </a>
+      <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateUserModal" (click)="updateUser.load(user.idUser)"><i class="fas fa-pencil-alt"></i> Edit </a>
+      <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal" (click)="deleteUser.initIdUser(user.idUser)"><i class="far fa-trash-alt"></i> Delete </a>
+    </td>
+  </tr>
+
+  </tbody>
+
+
+</table>
+
+<div  style="right: 0;position: absolute;
+    bottom: 0;">
+
+    <pagination-controls
+
+      class="my-pagination"
+      (pageChange)="p = $event; onPageChange($event) "
+      maxSize="4"
+      directionLinks="true"
+      responsive="true"
+      previousLabel="Previous"
+      nextLabel="Next">
+    </pagination-controls>
+
+</div>
+
+<app-user-detail #userDetail></app-user-detail>
+<app-update-user #updateUser (submitted)="getAllUsers(0)"></app-update-user>
+<app-delete-user #deleteUser (submitted)="getAllUsers(0)"></app-delete-user>
