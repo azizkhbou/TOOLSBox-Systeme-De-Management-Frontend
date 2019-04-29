@@ -1,4 +1,5 @@
-<div class="modal fade" id="trainingDetailModal" tabindex="-1" role="dialog" aria-labelledby="trainingDetailModalLabel" aria-hidden="true">
+<div class="modal fade" id="trainingDetailModal" tabindex="-1" role="dialog" aria-labelledby="trainingDetailModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,98 +11,106 @@
       <div class="modal-body">
         <div class="card">
           <h5 class="card-header bg-info text-white">
-            {{training.object}} 
+            {{training.object}}
           </h5>
           <div class="table-responsive">
-            <table class="table table-condensed table-responsive table-training-information" >
+            <table class="table table-condensed table-responsive table-training-information">
               <tbody width="50%">
-              <tr>
-                <td>
-                  <strong>
-                    Type
-                  </strong>
-                </td>
-                <td class="text-muted">
-                  {{training.type}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                    Required
-                  </strong>
-                </td>
-                <td class="text-muted">
-                  {{training.required}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                    Objectif
-                  </strong>
-                </td>
-                <td class="text-muted">
-                  {{training.objectif}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                   Category
-                  </strong>
-                </td>
-                <td class="text-muted">
-                  {{training.category}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                    Number of participants
-                  </strong>
-                </td>
-                <td class="text-muted">
-                  {{training.nbrOfParticipants}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                   Status
-                  </strong>
-                </td>
-                <td class="text-muted">
-                  {{training.status}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                   Category
-                  </strong>
-                </td>
-                <td class="text-muted">
-                  {{training.category}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                   Participants
-                  </strong>
-                </td>
-                <td class="text-muted">
-                  <p *ngFor="let participant of training.participants">{{participant.participantName}}</p>
-                </td>
-              </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Type
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{training.type}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Required
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{training.required}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Objectif
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{training.objectif}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Category
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{training.category}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Number of participants
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{training.nbrOfParticipants}}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>
+                      Category
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{training.category}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Participants
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    <p *ngFor="let participant of training.participants">{{participant.participantName}}</p>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
+        <hr>
+        <div class="form-group">
+          <div>
+            <label for="validation">Validation</label><br>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-check"></i></span>
+              </div>
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="training.validationActivityManager">
+                <option value="validated">Validated</option>
+                <option value="notvalidated">Not validated</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <hr>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="submit()">Done</button>
       </div>
     </div>
   </div>

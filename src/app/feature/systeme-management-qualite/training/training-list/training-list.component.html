@@ -38,7 +38,7 @@
     
     <td class="text-right" >
       <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#trainingDetailModal" (click)="trainingDetail.load(training.idTraining)"><i class="fas fa-folder" ></i> Needs plug </a>
-      
+      <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteTrainingModal" (click)="deleteTraining.initIdTraining(training.idTraining)"><i class="far fa-trash-alt"></i> Delete Plug</a>
     </td>
   </tr>
 
@@ -63,6 +63,7 @@
 
 </div>
 <app-training-detail #trainingDetail></app-training-detail>
+<app-delete-training #deleteTraining (submitted)="getAllTrainings(0)"></app-delete-training>
 
 
 

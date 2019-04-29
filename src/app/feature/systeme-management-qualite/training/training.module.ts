@@ -18,9 +18,11 @@ import {SpinnerModule} from 'primeng/spinner';
 import {TranslateModule} from '@ngx-translate/core';
 import {ButtonModule} from 'primeng/button';
 import { TrainingDetailComponent } from './training-detail/training-detail.component';
+import { DeleteTrainingComponent } from './delete-training/delete-training.component';
+import { TrainingManagerSpaceComponent } from './training-manager-space/training-manager-space.component';
 
 @NgModule({
-  declarations: [TrainingComponent, AddTrainingComponent, TrainingListComponent, TrainingDetailComponent],
+  declarations: [TrainingComponent, AddTrainingComponent, TrainingListComponent, TrainingDetailComponent, DeleteTrainingComponent, TrainingManagerSpaceComponent],
   imports: [
     CommonModule,
     TrainingRoutingModule,

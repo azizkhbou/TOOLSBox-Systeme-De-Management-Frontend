@@ -43,5 +43,9 @@ export class ApiService {
   public getTrainings(page:number): Observable<any> {
     return this.http.get<any>(this.baseUrl + 'training/all/' + page);
   }
+  public validateTraining(idTraining: number,  validation: string): Observable<any> {
+    return this.http.get<any>(this.baseUrl + 'training/validate/' + idTraining +  '/' + validation);
+  }
 }
+
 

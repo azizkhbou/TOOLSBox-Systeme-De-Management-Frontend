@@ -1,20 +1,22 @@
 import { Participant } from './participant';
 
 export class Training {
-  
-  idTraining:number;
+
+  idTraining: number;
   object: any;
   type: any;
   required: any;
   nbrOfParticipants: number;
   objectif: any;
   status: any;
-  page:number;
+  page: number;
   participants: Participant[];
   category: any;
+  validationActivityManager: string;
+  validation: any;
   constructor() {
-  this.participants = [];
+    this.participants = [];
 
   }
-    
+
 }

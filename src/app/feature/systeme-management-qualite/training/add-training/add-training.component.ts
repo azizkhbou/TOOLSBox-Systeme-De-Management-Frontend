@@ -33,7 +33,6 @@ export class AddTrainingComponent implements OnInit {
       required: ['', Validators.required],
       objectif: ['', Validators.required],
       nbrOfParticipants: ['', [Validators.required, Validators.min(0), Validators.max(100)]],
-      status: ['', Validators.required],
       participants: ['', Validators.required],
       category: ['',Validators.required]
     });
@@ -62,7 +61,6 @@ export class AddTrainingComponent implements OnInit {
     training.required = this.f.required.value;
     training.objectif = this.f.objectif.value;
     training.nbrOfParticipants = this.f.nbrOfParticipants.value;
-    training.status = this.f.status.value;
     training.participants = this.participants;
     training.category = this.f.category.value;
     console.log('display training');
