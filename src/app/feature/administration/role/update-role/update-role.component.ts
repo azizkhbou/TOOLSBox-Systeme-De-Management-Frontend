@@ -39,7 +39,7 @@ export class UpdateRoleComponent implements OnInit {
   }
 
   submit() {
-    this.role.titre = this.f.title.value;
+    this.role.title = this.f.title.value;
     this.role.privileges = this.f.privileges.value;
     this.apiService.updateObject(this.role, 'role').subscribe(
       data => {
@@ -56,7 +56,7 @@ export class UpdateRoleComponent implements OnInit {
   initForm(): void {
 
     this.updateRoleForm = this.formBuilder.group({
-      title: [this.role.titre, Validators.required],
+      title: [this.role.title, Validators.required],
       privileges: ['', Validators.required]
     });
     this.updateRoleForm.controls.privileges.setValue(this.role.privileges);
@@ -64,8 +64,8 @@ export class UpdateRoleComponent implements OnInit {
 
   }
 
-  load(idRole: number): void {
-    this.apiService.getObjectById(idRole, 'role').subscribe(
+  load(id: number): void {
+    this.apiService.getObjectById(id, 'role').subscribe(
       data => {
         this.role = data;
         this.initForm();

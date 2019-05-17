@@ -26,8 +26,8 @@ export class UpdateUserComponent implements OnInit {
     this.getActivities();
     this.getRoles();
     this.updateUserForm = this.formBuilder.group({
-      nom: ['', Validators.required],
-      prenom: ['', Validators.required],
+      lastName: ['', Validators.required],
+      firstName: ['', Validators.required],
       username: ['', Validators.required],
       password: [{value : '', disabled: true}, Validators.required],
       email: ['', Validators.required],
@@ -56,8 +56,8 @@ export class UpdateUserComponent implements OnInit {
   }
   initForm(): void {
     this.updateUserForm = this.formBuilder.group({
-      nom: [this.user.nom, Validators.required],
-      prenom: [this.user.prenom, Validators.required],
+      lastName: [this.user.lastName, Validators.required],
+      firstName: [this.user.firstName, Validators.required],
       username: [this.user.username, Validators.required],
       password: [{value : '', disabled: true}, Validators.required],
       email: [this.user.email, Validators.required],
@@ -72,8 +72,8 @@ export class UpdateUserComponent implements OnInit {
 
   submit() {
 
-    this.user.nom = this.f.nom.value;
-    this.user.prenom = this.f.prenom.value;
+    this.user.lastName = this.f.lastName.value;
+    this.user.firstName = this.f.firstName.value;
     this.user.username = this.f.username.value;
     this.user.email = this.f.email.value;
     this.user.activity = this.f.activity.value;
@@ -93,8 +93,8 @@ export class UpdateUserComponent implements OnInit {
 
   }
 
-  load(idUser: number): void {
-    this.apiService.getObjectById(idUser, 'user').subscribe(
+  load(id: number): void {
+    this.apiService.getObjectById(id, 'user').subscribe(
       data => {
         this.user = data;
         this.initForm();

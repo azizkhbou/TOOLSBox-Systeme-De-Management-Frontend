@@ -1,21 +1,32 @@
-import { Participant } from './participant';
+import { Organism } from './organism';
+import { Need } from './need';
+import { Activity } from './activity';
+
 
 export class Training {
 
-  idTraining: number;
-  object: any;
-  type: any;
-  required: any;
-  nbrOfParticipants: number;
-  objectif: any;
-  status: any;
+  id: number;
+
+  status: String;
   page: number;
-  participants: Participant[];
-  category: any;
-  validationActivityManager: string;
-  validation: any;
+  organisms: Organism[];
+  needs: Need[];
+  trainer: String;
+  dayNumber: number;
+  dayManCost: number;
+  financialCost: number;
+  schedualDate: Date;
+  realDate: Date;
+  activity: Activity;
+
+
+  validation: String;
+  need: any;
+  
   constructor() {
-    this.participants = [];
+    this.organisms = [];
+    this.needs = [];
+    this.activity = new Activity();
 
   }
 

@@ -10,7 +10,7 @@
       <div class="modal-body">
         <div class="card">
           <h5 class="card-header bg-info text-white">
-            {{role.titre}}
+            {{role.title}}
           </h5>
           <div class="table-responsive">
             <table class="table table-condensed table-responsive table-user-information" >
@@ -18,11 +18,11 @@
               <tr>
                 <td>
                   <strong>
-                    Identificacion
+                    Identification
                   </strong>
                 </td>
                 <td class="text-muted" width="70%">
-                  {{role.idRole}}
+                  {{role.id}}
                 </td>
               </tr>
               <tr>
@@ -32,7 +32,7 @@
                   </strong>
                 </td>
                 <td class="text-muted">
-                  <p *ngFor="let privilege of role.privileges">{{privilege.titre}}</p>
+                  <p *ngFor="let privilege of role.privileges">{{privilege.title}}</p>
                 </td>
               </tr>
               </tbody>

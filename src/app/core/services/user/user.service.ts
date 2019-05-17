@@ -25,8 +25,8 @@ export class UserService {
     return this.http.get<User>(this.userUrl + '/username/' + username);
   }
 
-  public getUserById(idUser: number): Observable<User> {
-    return this.http.get<User>(this.userUrl + '/idUser/' + idUser);
+  public getUserById(id: number): Observable<User> {
+    return this.http.get<User>(this.userUrl + '/id/' + id);
   }
 
 
@@ -38,7 +38,7 @@ export class UserService {
     return this.http.put(this.userUrl + '/update', user);
   }
 
-  public deleteUser(idUser: number): Observable<any> {
-    return this.http.delete(this.userUrl + '/delete/' + idUser);
+  public deleteUser(id: number): Observable<any> {
+    return this.http.delete(this.userUrl + '/delete/' + id);
   }
 }

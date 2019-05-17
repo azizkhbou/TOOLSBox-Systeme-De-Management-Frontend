@@ -1,0 +1,117 @@
+<div class="modal fade" id="needDetailModal" tabindex="-1" role="dialog" aria-labelledby="needDetailModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="needDetailModalLabel">Needs plug</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <h5 class="card-header bg-info text-white">
+            {{need.object}}
+          </h5>
+          <div class="table-responsive">
+            <table class="table table-condensed table-responsive table-need-information">
+              <tbody width="50%">
+                <tr>
+                  <td>
+                    <strong>
+                      Type
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{need.type}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Required
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{need.required}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Objectif
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{need.objectif}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Category
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{need.category}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Number of participants
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{need.nbrOfParticipants}}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>
+                      Category
+                    </strong>
+                  </td>
+                  <td class="text-muted">
+                    {{need.category}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Participants
+                    </strong>
+                  </td>
+                  <td class="text-muted">             
+                   <div *ngFor="let participant of need.participants">{{participant.firstName}}</div>                
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <hr>
+        <div class="form-group">
+          <div>
+            <label for="validation">Validation</label><br>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-check"></i></span>
+              </div>
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="need.validation">
+                <option value="validated">Validated</option>
+                <option value="not validated">Not validated</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="submit()">Done</button>
+      </div>
+    </div>
+  </div>
+</div>

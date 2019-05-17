@@ -20,6 +20,7 @@ export class AddUserComponent implements OnInit {
 
 
   addUserForm: FormGroup;
+  
   activities: Activity[] = [];
   roles: Role [] = [];
 
@@ -36,8 +37,8 @@ export class AddUserComponent implements OnInit {
     this.getActivities();
     this.getRoles();
     this.addUserForm = this.formBuilder.group({
-      nom: ['', Validators.required],
-      prenom: ['', Validators.required],
+      lastName: ['', Validators.required],
+      firstName: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
       email: ['', Validators.compose([
@@ -70,8 +71,8 @@ export class AddUserComponent implements OnInit {
 
   submit() {
     const user = new User();
-    user.nom = this.f.nom.value;
-    user.prenom = this.f.prenom.value;
+    user.lastName = this.f.lastName.value;
+    user.firstName = this.f.firstName.value;
     user.username = this.f.username.value;
     user.password = this.f.password.value;
     user.email = this.f.email.value;

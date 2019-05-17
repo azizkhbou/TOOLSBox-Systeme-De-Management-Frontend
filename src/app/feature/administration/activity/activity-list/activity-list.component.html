@@ -19,16 +19,16 @@
   <tr *ngFor="let activity of activities">
 
     <td>
-      {{activity.idActivity}}
+      {{activity.id}}
     </td>
 
     <td>
       {{activity.title}}
     </td>
     <td class="text-right" >
-      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#activityDetailModal" (click)="activityDetail.load(activity.idActivity)"><i class="fa fa-folder" ></i> View </a>
-      <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateActivityModal" (click)="updateActivity.load(activity.idActivity)"><i class="fas fa-pencil-alt"></i> Edit </a>
-      <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal" (click)="deleteActivity.initIdActivity(activity.idActivity)"><i class="far fa-trash-alt"></i> Delete </a>
+      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#activityDetailModal" (click)="activityDetail.load(activity.id)"><i class="fa fa-folder" ></i> View </a>
+      <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateActivityModal" (click)="updateActivity.load(activity.id)"><i class="fas fa-pencil-alt"></i> Edit </a>
+      <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal" (click)="deleteActivity.initIdActivity(activity.id)"><i class="far fa-trash-alt"></i> Delete </a>
     </td>
   </tr>
 

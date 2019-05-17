@@ -1,0 +1,76 @@
+<link href="../../../assets/assets/img/brand/favicon.png" rel="icon" type="image/png">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<!-- Icons -->
+<link href="../../../assets/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+
+<!-- Argon CSS -->
+<link type="text/css" href="../../../assets/assets/css/argon.css?v=1.0.0" rel="stylesheet">
+<table class="table align-items-center table-flush">
+  <thead class="thead-light">
+  <tr>
+    <th  style="width: 1%">#</th>
+    <th >Object</th>
+    <th >Type</th>
+    <th >Required</th>
+    <th >Number Of Particpants</th>
+    <th >Validation</th>
+    <th ></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let need of needs | paginate: { itemsPerPage: 6, currentPage: p ,totalItems: total}">
+
+    <td>
+    {{need.id}}
+    </td>
+    <td>
+      {{need.object}}
+    </td>
+    <td>
+      {{need.type}}
+    </td>
+    <td>
+      {{need.required}}
+    </td>
+    <td>
+      {{need.nbrOfParticipants}}
+    </td>
+    <td>
+      <i *ngIf="need.validation === testValidate" class="far fa-check-circle text-success"></i> <i *ngIf="need.validation === testNotValidate" class="far fa-times-circle text-danger"></i> {{need.validation}}
+    </td>
+    <td class="text-right" >
+      <a *ngIf="need.validation === testValidate" href="#" class="btn btn btn-sm" data-toggle="modal" data-target="#createTrainingModal" (click)="CreateTraining.reset()"><i class="fas fa-plus"></i>Create training</a>
+      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#needDetailModal" (click)="needDetail.load(need.id)"><i class="fas fa-folder" ></i> Need form </a>
+      <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteNeedModal" (click)="deleteNeed.initId(need.id)"><i class="far fa-trash-alt"></i> Delete Plug</a>
+      
+    </td>
+  </tr>
+
+  </tbody>
+
+
+</table>
+
+<div  style="right: 0;position: absolute;
+    bottom: 0;">
+
+    <pagination-controls
+
+      class="my-pagination"
+      (pageChange)="p = $event; onPageChange($event) "
+      maxSize="4"
+      directionLinks="true"
+      responsive="true"
+      previousLabel="Previous"
+      nextLabel="Next">
+    </pagination-controls>
+
+</div>
+<app-need-detail #needDetail (submitted)="getAllNeeds(0)"></app-need-detail>
+<app-delete-need #deleteNeed (submitted)="getAllNeeds(0)"></app-delete-need>
+<app-create-training #createTraining (submitted)="trainingList.load($event)"></app-create-training>
+
+
+
+

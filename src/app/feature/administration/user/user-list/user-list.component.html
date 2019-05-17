@@ -21,13 +21,13 @@
   <tr *ngFor="let user of users | paginate: { itemsPerPage: 6, currentPage: p ,totalItems: total}">
 
     <td>
-{{user.idUser}}
+{{user.id}}
     </td>
     <td>
-      {{user.nom}}
+      {{user.lastName}}
     </td>
     <td>
-      {{user.prenom}}
+      {{user.firstName}}
     </td>
     <td>
       {{user.email}}
@@ -36,9 +36,9 @@
       {{user.activity.title}}
     </td>
     <td class="text-right" >
-      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#userDetailModal" (click)="userDetail.load(user.idUser)"><i class="fas fa-folder" ></i> View </a>
-      <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateUserModal" (click)="updateUser.load(user.idUser)"><i class="fas fa-pencil-alt"></i> Edit </a>
-      <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal" (click)="deleteUser.initIdUser(user.idUser)"><i class="far fa-trash-alt"></i> Delete </a>
+      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#userDetailModal" (click)="userDetail.load(user.id)"><i class="fas fa-folder" ></i> View </a>
+      <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateUserModal" (click)="updateUser.load(user.id)"><i class="fas fa-pencil-alt"></i> Edit </a>
+      <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal" (click)="deleteUser.initId(user.id)"><i class="far fa-trash-alt"></i> Delete </a>
     </td>
   </tr>
 

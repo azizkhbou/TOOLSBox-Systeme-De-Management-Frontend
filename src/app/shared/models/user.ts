@@ -4,10 +4,10 @@ import {Activity} from './activity';
 export class User {
 
   email: string;
-  idUser: number;
-  nom: string;
+  id: number;
+  firstName: string;
   password: string;
-  prenom: string;
+  lastName: string;
   roles: Role[];
   username: string;
   activity: Activity;

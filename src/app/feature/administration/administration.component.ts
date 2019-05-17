@@ -30,8 +30,8 @@ export class AdministrationComponent implements OnInit {
 
   getUser(): void {
     this.apiService.getUserByUsername().subscribe(data => {
-      this.prenom = data.prenom;
-      this.nom = data.nom;
+      this.prenom = data.firstName;
+      this.nom = data.lastName;
     });
   }
 

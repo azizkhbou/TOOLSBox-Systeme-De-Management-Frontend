@@ -1,6 +1,6 @@
 export class Activity {
 
-  idActivity: number;
+  id: number;
   title: string;
 
   constructor() {

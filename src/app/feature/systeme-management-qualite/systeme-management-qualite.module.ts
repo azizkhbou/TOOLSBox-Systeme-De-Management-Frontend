@@ -9,17 +9,21 @@ import { Interceptor } from 'src/app/core/interceptors/interceptor';
 import { SmqHomeComponent } from './smq-home/smq-home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TrainingComponent } from './training/training.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [SystemeManagementQualiteComponent,SmqHomeComponent],
   imports: [
     CommonModule,
     SystemeManagementQualiteRoutingModule,
-  SharedModule
+    SharedModule,
+    MatExpansionModule
   ],
   providers:[ApiService,{provide:HTTP_INTERCEPTORS,
   useClass:Interceptor,
   multi:true}
   ]
 })
-export class SystemeManagementQualiteModule { }
+export class SystemeManagementQualiteModule {
+ }

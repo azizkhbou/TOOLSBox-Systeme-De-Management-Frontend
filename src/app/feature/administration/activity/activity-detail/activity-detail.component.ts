@@ -15,8 +15,8 @@ activity:Activity;
     this.activity = new Activity();
 
   }
-  load(idActivity: number): void {
-    this.apiService.getObjectById(idActivity, 'activity').subscribe(
+  load(id: number): void {
+    this.apiService.getObjectById(id, 'activity').subscribe(
       data => {
         this.activity = data;
         console.log(this.activity);

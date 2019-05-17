@@ -40,11 +40,14 @@ export class ApiService {
   public getUserByUsername(): Observable<User> {
     return this.http.get<User>(this.baseUrl + 'user' + '/username/' + this.userStorage.getUsername());
   }
+  public getNeeds(page:number): Observable<any> {
+    return this.http.get<any>(this.baseUrl + 'need/all/' + page);
+  }
   public getTrainings(page:number): Observable<any> {
     return this.http.get<any>(this.baseUrl + 'training/all/' + page);
   }
-  public validateTraining(idTraining: number,  validation: string): Observable<any> {
-    return this.http.get<any>(this.baseUrl + 'training/validate/' + idTraining +  '/' + validation);
+  public validateNeed(id: number,  validation: string): Observable<any> {
+    return this.http.get<any>(this.baseUrl + 'need/validate/' + id+  '/' + validation);
   }
 }
 

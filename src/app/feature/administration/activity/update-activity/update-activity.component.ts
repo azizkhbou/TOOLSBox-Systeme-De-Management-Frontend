@@ -45,8 +45,8 @@ export class UpdateActivityComponent implements OnInit {
       title: [this.activity.title, Validators.required],
     });
  }
- load(idActivity: number): void {
-  this.apiService.getObjectById(idActivity, 'activity').subscribe(
+ load(id: number): void {
+  this.apiService.getObjectById(id, 'activity').subscribe(
     data => {
       this.activity = data;
       this.initForm();

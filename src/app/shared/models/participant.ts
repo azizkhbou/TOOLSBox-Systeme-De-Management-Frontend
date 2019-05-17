@@ -1,11 +1,13 @@
 export class Participant {
+  participantName: String;
   reset() {
     throw new Error("Method not implemented.");
   }
 
-   idParticipant: number;
-   participantName: String;
-  
+   id: number;
+  firstName: String;
+  lastName:String;
+
     constructor() {
     }
   

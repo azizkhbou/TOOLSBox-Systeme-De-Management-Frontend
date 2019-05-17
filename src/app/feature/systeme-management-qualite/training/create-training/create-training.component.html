@@ -1,0 +1,281 @@
+<div class="modal fade" id="createTrainingModal" tabindex="-1" role="dialog" aria-labelledby="createTrainingModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createTrainingModalLabel"> Create </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="createTrainingForm">
+          
+
+              <label for="object">Object</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-object-ungroup"></i></span>
+                </div>
+                <input type="text" class="form-control" id="object" aria-describedby="basic-addon3" placeholder="Object"
+                  formControlName="object">
+              </div>
+            
+
+         
+          <hr>
+          <div class="row">
+            <div class="col">
+              <label for="type">Type</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-align-justify"></i></span>
+                </div>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="type">
+                  <option selected>Choose Type</option>
+                  <option>Internal</option>
+                  <option>External</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="col">
+              <label for="required">Required</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-handshake"></i></span>
+                </div>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"
+                  formControlName="required">
+                  <option selected>Required</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-bullseye"></i></span>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="status" >
+                  <option>Validated</option>
+                  <option>Canceled</option>
+                  <option>Suspendended</option>
+                  <option>Planified</option>
+                  <option>Realized</option>
+                  <option>Hot evaluation</option>
+                  <option>Cold evaluation</option>
+                  <option>Closed</option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+                <hr>
+                <div class="row">
+                  <div class="col">
+                    <label for="nbrOfParticipants">Number Of Participants</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-users"></i></span>
+                      </div>
+                      <input type="number" name="nbrOfParticipants" id="nbrOfParticipants"
+                        formControlName="nbrOfParticipants" min="1" max="100">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label for="dayNumber">Number Of Days</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-users"></i></span>
+                      </div>
+                      <input type="number" name="dayNumber" id="dayNumber" formControlName="dayNumber" min="1" max="100">
+                    </div>
+                  </div>
+                </div>
+              <hr>
+              <div class="row">
+                <div class="col">
+                  <label for="financialCost">Financial Cost</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">€</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest euro)"
+                      formControlName="financialCost">
+                    <div class="input-group-append">
+                      <span class="input-group-text">.00</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <label for="dayManCost">Day Man Cost</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">€</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest euro)"
+                      formControlName="dayManCost">
+                    <div class="input-group-append">
+                      <span class="input-group-text">.00</span>
+                    </div>
+                  </div>
+                </div>
+              
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="activity">Activity</label><br>
+            <p-dropdown id="activity" [options]="activities" filter="true" optionLabel="title"
+              formControlName="activity" [style]="{'width':'100%'}">
+            </p-dropdown>
+
+          </div>
+          <hr>
+          
+
+              <label for="trainer">Trainer</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-object-ungroup"></i></span>
+                </div>
+                <input type="text" class="form-control" id="trainer" aria-describedby="basic-addon3"
+                  placeholder="trainer" formControlName="trainer">
+              </div>
+           
+            
+            <div class="row">
+              <div class="col">
+
+                <label for="schedualDate">Scheduled Date
+                </label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-object-ungroup"></i></span>
+                  </div>
+                  <p-calendar  [numberOfMonths]="3" formControlName="schedualDate"></p-calendar>
+
+                </div>
+              </div>
+              <div class="col">
+
+                <label for="realDate">Real Date</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-object-ungroup"></i></span>
+                  </div>
+                  <p-calendar formControlName="realDate" [numberOfMonths]="3"></p-calendar>
+
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <form #createParticipantForm="ngForm">
+
+              <div class="form-group">
+
+                <label for="Participants" class="required">{{'Participants' | translate}}</label>
+
+
+                <div class="input-group mb-3">
+
+
+
+
+                  <textarea id="participant-add" type="textarea" class="form-control" name="participantName"
+                    [(ngModel)]="participantToAdd.participantName" required></textarea>
+                  &nbsp;
+
+
+                  <button id="add-participant-btn" type="button" class="btn btn-secondary" data-toggle="modal"
+                    [disabled]="!createParticipantForm.valid"
+                    (click)="addParticipant(participantToAdd.participantName)">
+                    <i class="fa fa-plus"></i>
+                  </button>
+
+                </div>
+                <div class="data">
+
+                  <br>
+
+
+
+                  <ul class="list-unstyled">
+
+                    <li *ngFor="let participant of participants">
+
+                      <div class="row">
+
+
+                        <div class="col-6">
+
+                    <li> <span *ngIf="!participant.editMode" id="participantName"
+                        name="participantName">{{participant.participantName}}</span></li>
+
+                    <form *ngIf="participant.editMode">
+
+                      <div class="input-group mb-3">
+
+
+
+                        <input type="text" class="form-control" id="participant" name="participant"
+                          *ngIf="participant.editMode" [(ngModel)]="participant.participantName">
+
+                        &nbsp;
+
+                        <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                          (click)="editParticipant(participant)">
+
+                          <i class="fa fa-check"></i>
+
+                        </button>
+
+                      </div>
+
+                    </form>
+
+                </div>
+
+                <div class="col-1">
+
+
+
+                  <p-button icon="pi pi-times" styleClass="ui-button-danger" (click)="deleteParticipant(participant)">
+                  </p-button>
+
+
+
+
+
+                </div>
+
+              </div>
+
+              </li>
+
+              </ul>
+
+          </div>
+
+      </div>
+
+
+
+
+      </form>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-success" data-dismiss="modal" (click)="submit()">Submit</button>
+    </div>
+  </div>
+</div>
+</div>

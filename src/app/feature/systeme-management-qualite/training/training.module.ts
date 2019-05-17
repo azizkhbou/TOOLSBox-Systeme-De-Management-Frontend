@@ -1,32 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { TrainingRoutingModule } from './training-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule, NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
+import { TrainingListComponent } from './training-list/training-list.component';
+import { ApiService } from 'src/app/core/services/api/api.service';
+import { Interceptor } from 'src/app/core/interceptors/interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ListboxModule } from 'primeng/listbox';
 import { DropdownModule } from 'primeng/dropdown';
-import { NgbModule, NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
-import {InputTextareaModule} from 'primeng/inputtextarea';
-import { TrainingComponent } from './training.component';
-import { ApiService } from 'src/app/core/services/api/api.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Interceptor } from 'src/app/core/interceptors/interceptor';
-import { AddTrainingComponent } from './add-training/add-training.component';
-import {SliderModule} from 'primeng/slider';
-import { TrainingListComponent } from './training-list/training-list.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { SliderModule } from 'primeng/slider';
 import { NgxPaginationModule } from 'ngx-pagination';
-import {SpinnerModule} from 'primeng/spinner';
-import {TranslateModule} from '@ngx-translate/core';
-import {ButtonModule} from 'primeng/button';
-import { TrainingDetailComponent } from './training-detail/training-detail.component';
-import { DeleteTrainingComponent } from './delete-training/delete-training.component';
-import { TrainingManagerSpaceComponent } from './training-manager-space/training-manager-space.component';
+import { SpinnerModule } from 'primeng/spinner';
+import { TranslateModule } from '@ngx-translate/core';
+import { ButtonModule } from 'primeng/button';
+import { TrainingComponent } from './training.component';
+import { CreateTrainingComponent } from '../training/create-training/create-training.component';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
-  declarations: [TrainingComponent, AddTrainingComponent, TrainingListComponent, TrainingDetailComponent, DeleteTrainingComponent, TrainingManagerSpaceComponent],
+  declarations: [TrainingListComponent,TrainingComponent],
   imports: [
     CommonModule,
     TrainingRoutingModule,
-    FormsModule,
+    NgbModule,
     ReactiveFormsModule,
     ListboxModule,
     DropdownModule,
@@ -36,9 +35,9 @@ import { TrainingManagerSpaceComponent } from './training-manager-space/training
     NgxPaginationModule,
     SpinnerModule,
     TranslateModule.forRoot(),
-    ButtonModule
+    ButtonModule,
+    CalendarModule
   ],
-  
   providers: [ ApiService, {provide: HTTP_INTERCEPTORS,
     useClass: Interceptor,
     multi : true}, NgbPopoverConfig]

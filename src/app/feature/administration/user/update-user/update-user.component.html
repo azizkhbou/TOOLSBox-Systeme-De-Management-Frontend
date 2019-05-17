@@ -17,7 +17,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text ui-inputgroup-addon"><i class="fa fa-user"></i></span>
                 </div>
-                <input type="text" class="form-control" id="firstName" aria-describedby="basic-addon3" placeholder="First name" formControlName="prenom">
+                <input type="text" class="form-control" id="firstName" aria-describedby="basic-addon3" placeholder="First name" formControlName="firstName">
               </div>
             </div>
             <div class="col">
@@ -26,7 +26,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text ui-inputgroup-addon"><i class="fa fa-user"></i></span>
                 </div>
-                <input type="text" class="form-control" id="lastName" aria-describedby="basic-addon3" placeholder="Last name" formControlName="nom">
+                <input type="text" class="form-control" id="lastName" aria-describedby="basic-addon3" placeholder="Last name" formControlName="lastName">
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
 
           <div class="form-group">
             <label for="roles">Roles</label>
-            <p-listbox id="roles" [options]="roles"  multiple="multiple" checkbox="checkbox" filter="filter" optionLabel="titre" [style]="{'width':'100%'}" formControlName="roles">
+            <p-listbox id="roles" [options]="roles"  multiple="multiple" checkbox="checkbox" filter="filter" optionLabel="title" [style]="{'width':'100%'}" formControlName="roles">
               <p-header>
                 <i class="fas fa-shield-alt"></i> Roles
               </p-header>

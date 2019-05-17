@@ -17,8 +17,8 @@ export class RoleDetailComponent implements OnInit {
     this.role = new Role();
   }
 
-  load(idRole: number): void {
-    this.apiService.getObjectById(idRole, 'role').subscribe(
+  load(id: number): void {
+    this.apiService.getObjectById(id, 'role').subscribe(
       data => {
         this.role = data;
         console.log(this.role);

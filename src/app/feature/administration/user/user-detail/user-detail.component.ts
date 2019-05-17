@@ -17,8 +17,8 @@ export class UserDetailComponent implements OnInit {
     this.user = new User();
   }
 
-  load(idUser: number): void {
-    this.apiService.getObjectById(idUser, 'user').subscribe(
+  load(id: number): void {
+    this.apiService.getObjectById(id, 'user').subscribe(
       data => {
         this.user = data;
         console.log(this.user);

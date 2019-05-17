@@ -9,12 +9,11 @@ const routes: Routes = [
   { path: 'dashboard', component: SystemeManagementQualiteComponent,
     children: [
       { path: 'home', component:  SmqHomeComponent },
-      { path: 'trainings', loadChildren:'./training/training.module#TrainingModule' },
-    
+      { path: 'needs-management', loadChildren:'./need/need.module#NeedModule' },
+      { path: 'trainings-management', loadChildren:'./training/training.module#TrainingModule' },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]}
 ];
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

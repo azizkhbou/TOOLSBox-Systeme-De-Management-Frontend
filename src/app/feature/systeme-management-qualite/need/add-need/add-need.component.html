@@ -1,0 +1,203 @@
+<div class="modal fade" id="trainingNeedsModal" tabindex="-1" role="dialog" aria-labelledby="trainingNeedsModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="trainingNeedsModalLabel">Training Needs</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="trainingNeedsForm">
+          <div class="row">
+            <div class="col">
+
+              <label for="object">Object</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-object-ungroup"></i></span>
+                </div>
+                <input type="text" class="form-control" id="object" aria-describedby="basic-addon3" placeholder="Object"
+                  formControlName="object">
+              </div>
+            </div>
+
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col">
+              <label for="type">Type</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-align-justify"></i></span>
+                </div>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="type">
+                  <option selected>Choose Type</option>
+                  <option>Internal</option>
+                  <option>External</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="col">
+              <label for="required">Required</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-handshake"></i></span>
+                </div>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="required">
+                  <option selected>Required</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="objectif">Objectif</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-bullseye"></i></span>
+              </div>
+              <textarea class="form-control" aria-label="Objectif" formControlName="objectif"></textarea>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="category">Category</label><br>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-project-diagram"></i></span>
+                </div>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="category">
+                  <option selected>Choose Category</option>
+                  <option>Use base</option>
+                  <option>Metrise</option>
+                  <option>Expertise</option>
+                  <option>Training abroad</option>
+                </select>
+              </div>
+            </div>
+            <hr>
+            <label for="nbrOfParticipants">Number Of Participants</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text ui-inputgroup-addon"><i class="fas fa-users"></i></span>
+              </div>
+              <input type="number" name="nbrOfParticipants" id="nbrOfParticipants" formControlName="nbrOfParticipants"
+                min="1" max="100">
+
+            </div>
+          </div>
+
+          <hr>
+          <form #createParticipantForm="ngForm">
+
+            <div class="form-group">
+
+              <label for="Participants" class="required">{{'Participants' | translate}}</label>
+
+
+              <div class="input-group mb-3">
+
+
+
+
+                <textarea id="participant-add" type="textarea" class="form-control" name="firstName"
+                  [(ngModel)]="participantToAdd.firstName" required></textarea>
+                &nbsp;
+                <textarea id="participant-add" type="textarea" class="form-control" name="lastName"
+                  [(ngModel)]="participantToAdd.lastName" required></textarea>
+                &nbsp;
+
+
+                <button id="add-participant-btn" type="button" class="btn btn-secondary" data-toggle="modal"
+                  [disabled]="!createParticipantForm.valid" (click)="addParticipant(participantToAdd.firstName,participantToAdd.lastName)" ng-change="getParticipants(participants)">
+                  <i class="fa fa-plus"></i>
+                </button>
+              
+
+              </div>
+              <div class="data">
+
+                <br>
+
+
+
+                <!-- <ul class="list-unstyled">
+
+                  <li *ngFor="let participant of participants">
+
+                    <div class="row">
+
+
+                      <div class="col-6">
+                        
+                          <li> <span *ngIf="!participant.editMode" id="firstName" id="lastName"
+                              name="firstName"  name="lastName">{{participant.firstName}}{{participant.lastName}}</span></li>
+                        
+                        <form *ngIf="participant.editMode">
+
+
+                          <div class="input-group mb-3">
+
+
+
+                            <input type="text" class="form-control" id="participant" name="participant"
+                              *ngIf="participant.editMode" [(ngModel)]="participant.firstName">
+
+                            &nbsp;
+                            <input type="text" class="form-control" id="participant" name="participant"
+                            *ngIf="participant.editMode" [(ngModel)]="participant.lastName">
+
+                          &nbsp;
+
+                            <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                              (click)="editParticipant(participant)">
+
+                              <i class="fa fa-check"></i>
+
+                            </button>
+
+                          </div>
+
+                        </form>
+
+                      </div>
+
+                      
+
+                    </div>
+
+                  </li>
+
+                </ul> -->
+
+
+
+
+              </div>
+
+            </div>
+
+
+
+          </form>
+          <hr>
+          <div class="form-group">
+            <p-listbox id="participantsInit" [options]="participantsInit"  multiple="multiple" checkbox="checkbox" filter="filter" optionLabel="firstName" [style]="{'width':'100%'}" formControlName="participantsInit" >
+              <p-header>
+                <i class="fas fa-group"></i> 
+              </p-header>
+            </p-listbox>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="submit()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

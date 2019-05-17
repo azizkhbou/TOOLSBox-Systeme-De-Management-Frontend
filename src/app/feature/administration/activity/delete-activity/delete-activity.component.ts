@@ -9,16 +9,16 @@ import { ApiService } from 'src/app/core/services/api/api.service';
 })
 export class DeleteActivityComponent implements OnInit {
   @Output() submitted = new EventEmitter<boolean>();
-  idActivity: number;
+  id: number;
   constructor(private toastr: ToastrService, private apiService: ApiService) { }
 
   ngOnInit() {
   }
-  initIdActivity(idActivity: number): void {
-    this.idActivity = idActivity;
+  initIdActivity(id: number): void {
+    this.id = id;
   }
   deleteActivity(): void {
-    this.apiService.deleteObject(this.idActivity, 'activity').subscribe(
+    this.apiService.deleteObject(this.id, 'activity').subscribe(
       data => {
         if (data) {
           this.submitted.emit(true);

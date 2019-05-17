@@ -2,9 +2,9 @@ import {Privilege} from './privilege';
 
 export class Role {
 
-  idRole: number;
+  id: number;
   privileges: Privilege[];
-  titre: string;
+  title: string;
 
   constructor() {
   }

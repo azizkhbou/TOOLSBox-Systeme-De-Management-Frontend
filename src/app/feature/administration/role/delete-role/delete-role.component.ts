@@ -10,19 +10,19 @@ import {ApiService} from '../../../../core/services/api/api.service';
 export class DeleteRoleComponent implements OnInit {
 
   @Output() submitted = new EventEmitter<boolean>();
-  idRole: number;
+  id: number;
 
   constructor(private toastr: ToastrService, private apiService: ApiService) { }
 
   ngOnInit() {
   }
 
-  initIdRole(idRole: number): void {
-    this.idRole = idRole;
+  initId(id: number): void {
+    this.id = id;
   }
 
   deleteRole(): void {
-    this.apiService.deleteObject(this.idRole, 'role').subscribe(
+    this.apiService.deleteObject(this.id, 'role').subscribe(
       data => {
         if (data) {
           this.submitted.emit(true);

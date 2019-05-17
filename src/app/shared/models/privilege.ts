@@ -1,7 +1,7 @@
 export class Privilege {
 
-  idPrivilege: number;
-  titre: string;
+  id: number;
+  title: string;
 
   constructor() {
   }

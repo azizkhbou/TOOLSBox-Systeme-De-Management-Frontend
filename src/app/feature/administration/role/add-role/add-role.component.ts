@@ -34,7 +34,7 @@ export class AddRoleComponent implements OnInit {
 
   submit(): void {
     const role = new Role();
-    role.titre = this.f.title.value;
+    role.title = this.f.title.value;
     role.privileges = this.f.privileges.value;
     this.apiService.createObject(role, 'role').subscribe(
       data => {
